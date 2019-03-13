@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.effect.GaussianBlur?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="669.0" prefWidth="890.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.quizCreatorController">
+   <children>
+      <ImageView fitHeight="973.0" fitWidth="915.0" layoutX="-13.0" layoutY="-114.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../resource/img/icon/bg.jpg" />
+         </image>
+         <effect>
+            <GaussianBlur radius="25.0">
+               <input>
+                  <ColorAdjust hue="0.3" saturation="-0.3" />
+               </input>
+            </GaussianBlur>
+         </effect>
+      </ImageView>
+      <AnchorPane fx:id="nextHolder" layoutX="230.0" layoutY="77.0" prefHeight="535.0" prefWidth="471.0">
+         <children>
+            <AnchorPane prefHeight="535.0" prefWidth="471.0" style="-fx-background-color: BLACK; -fx-opacity: 0.25;" />
+            <Button layoutX="118.0" layoutY="428.0" mnemonicParsing="false" onAction="#setNext" prefHeight="66.0" prefWidth="236.0" styleClass="loginButton" text="Next" textFill="WHITE">
+               <font>
+                  <Font name="Monospaced Regular" size="24.0" />
+               </font>
+            </Button>
+            <TextField fx:id="cheatCode" alignment="CENTER" layoutX="118.0" layoutY="49.0" prefHeight="65.0" prefWidth="236.0" promptText="cheatCode" styleClass="userIDField">
+               <font>
+                  <Font name="Monospaced Regular" size="27.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="subject" alignment="CENTER" layoutX="118.0" layoutY="140.0" prefHeight="65.0" prefWidth="236.0" promptText="subject" styleClass="userIDField">
+               <font>
+                  <Font name="Monospaced Regular" size="27.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="numOfQus" alignment="CENTER" layoutX="118.0" layoutY="235.0" prefHeight="65.0" prefWidth="236.0" promptText="numOfQus" styleClass="userIDField">
+               <font>
+                  <Font name="Monospaced Regular" size="27.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="numOfOp" alignment="CENTER" layoutX="118.0" layoutY="329.0" prefHeight="65.0" prefWidth="236.0" promptText="numOfOp" styleClass="userIDField">
+               <font>
+                  <Font name="Monospaced Regular" size="27.0" />
+               </font>
+            </TextField>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="questionHolder" layoutX="32.0" layoutY="14.0" prefHeight="641.0" prefWidth="826.0">
+         <children>
+            <AnchorPane layoutX="16.0" layoutY="47.0" prefHeight="553.0" prefWidth="799.0" style="-fx-background-color: BLACK; -fx-opacity: 0.25;" />
+            <TextField fx:id="questionName" alignment="CENTER" layoutX="69.0" layoutY="140.0" prefHeight="66.0" prefWidth="562.0" promptText="enter question name" styleClass="userIDField">
+               <font>
+                  <Font name="Monospaced Regular" size="27.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="option" alignment="CENTER" layoutX="69.0" layoutY="240.0" prefHeight="66.0" prefWidth="561.0" promptText="enter option" styleClass="userIDField">
+               <font>
+                  <Font name="Monospaced Regular" size="27.0" />
+               </font>
+            </TextField>
+            <Button fx:id="addOption" layoutX="641.0" layoutY="240.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="126.0" styleClass="loginButton" text="ADD+" textFill="WHITE">
+               <font>
+                  <Font name="Monospaced Regular" size="24.0" />
+               </font>
+            </Button>
+            <TextField fx:id="answer" alignment="CENTER" layoutX="69.0" layoutY="341.0" prefHeight="66.0" prefWidth="562.0" promptText="enter answer" styleClass="userIDField">
+               <font>
+                  <Font name="Monospaced Regular" size="27.0" />
+               </font>
+            </TextField>
+            <Button fx:id="next" layoutX="69.0" layoutY="449.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="696.0" styleClass="loginButton" text="Next" textFill="WHITE">
+               <font>
+                  <Font name="Monospaced Regular" size="24.0" />
+               </font>
+            </Button>
+            <Button fx:id="addQuestion" layoutX="641.0" layoutY="138.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="126.0" styleClass="loginButton" text="ADD+" textFill="WHITE">
+               <font>
+                  <Font name="Monospaced Regular" size="24.0" />
+               </font>
+            </Button>
+            <Button fx:id="addAnswer" layoutX="641.0" layoutY="338.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="126.0" styleClass="loginButton" text="ADD+" textFill="WHITE">
+               <font>
+                  <Font name="Monospaced Regular" size="24.0" />
+               </font>
+            </Button>
+            <Button fx:id="save" layoutX="69.0" layoutY="449.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="315.0" styleClass="loginButton" text="Save" textFill="WHITE">
+               <font>
+                  <Font name="Monospaced Regular" size="24.0" />
+               </font>
+            </Button>
+            <Button fx:id="cancel" layoutX="449.0" layoutY="449.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="315.0" styleClass="loginButton" text="Cancel" textFill="WHITE">
+               <font>
+                  <Font name="Monospaced Regular" size="24.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+      <Label fx:id="errormsg" alignment="CENTER" layoutX="232.0" layoutY="15.0" prefHeight="50.0" prefWidth="471.0" textFill="#c50000">
+         <font>
+            <Font name="Monospaced Bold" size="20.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
