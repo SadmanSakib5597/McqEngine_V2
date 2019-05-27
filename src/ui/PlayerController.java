@@ -19,6 +19,7 @@ import questionEngine.Question;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Date;
+import java.util.Random;
 import java.util.ResourceBundle;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -63,11 +64,15 @@ public class PlayerController implements Initializable {
 
     public void setQuestion()
     {
+        Random rand = new Random();
+        int ran = rand.nextInt(question.numberOfQuestion);
+
+
         layout = new VBox();
         errormsg.setText("");
 
-        questionName.setText(question.question.get(numOfQus.get()) + " ?");
-        Option opList = question.option.get(numOfQus.get());
+        questionName.setText(question.question.get(ran) + " ?");
+        Option opList = question.option.get(ran);
 
         ToggleGroup groupOfRadio = new ToggleGroup();
 
@@ -75,7 +80,8 @@ public class PlayerController implements Initializable {
 
         for(int i=0; i<question.numberOfOption; i++)
         {
-            RadioButton radio = new RadioButton(opList.option.get(i));
+            int man = rand.nextInt(question.numberOfOption);
+            RadioButton radio = new RadioButton(opList.option.get(man));
             radio.setStyle("-fx-text-fill: white; -fx-font-size: 20px;");
             radio.setUserData(opList.option.get(i));
             radio.setToggleGroup(groupOfRadio);
@@ -94,7 +100,7 @@ public class PlayerController implements Initializable {
                     layout.setDisable(true);
                     String answer = groupOfRadio.getSelectedToggle().getUserData().toString();
 
-                    if(answer.equals(question.answer.get(numOfQus.get())))
+                    if(answer.equals(question.answer.get(ran)))
                     {
                         errormsg.setText("*Correct answer.");
                         errormsg.setStyle("-fx-text-fill: green;");
