@@ -18,6 +18,7 @@ import questionEngine.Question;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Random;
 import java.util.ResourceBundle;
@@ -54,6 +55,7 @@ public class PlayerController implements Initializable {
     AtomicInteger numOfQus = new AtomicInteger(0);
     AtomicInteger numOfOp = new AtomicInteger(0);
     VBox layout;
+    ArrayList<Integer> arr = new ArrayList<>();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -67,6 +69,14 @@ public class PlayerController implements Initializable {
         Random rand = new Random();
         int ran = rand.nextInt(question.numberOfQuestion);
 
+        while(arr.contains(ran))
+        {
+            ran = rand.nextInt(question.numberOfQuestion);
+        }
+
+        arr.add(ran);
+
+        int tmpran = ran;
 
         layout = new VBox();
         errormsg.setText("");
@@ -81,7 +91,7 @@ public class PlayerController implements Initializable {
         for(int i=0; i<question.numberOfOption; i++)
         {
             int man = rand.nextInt(question.numberOfOption);
-            RadioButton radio = new RadioButton(opList.option.get(man));
+            RadioButton radio = new RadioButton(opList.option.get(i));
             radio.setStyle("-fx-text-fill: white; -fx-font-size: 20px;");
             radio.setUserData(opList.option.get(i));
             radio.setToggleGroup(groupOfRadio);
@@ -100,7 +110,7 @@ public class PlayerController implements Initializable {
                     layout.setDisable(true);
                     String answer = groupOfRadio.getSelectedToggle().getUserData().toString();
 
-                    if(answer.equals(question.answer.get(ran)))
+                    if(answer.equals(question.answer.get(tmpran)))
                     {
                         errormsg.setText("*Correct answer.");
                         errormsg.setStyle("-fx-text-fill: green;");
