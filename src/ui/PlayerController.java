@@ -91,7 +91,15 @@ public class PlayerController implements Initializable {
         for(int i=0; i<question.numberOfOption; i++)
         {
             int man = rand.nextInt(question.numberOfOption);
+
+
+
+
+
             RadioButton radio = new RadioButton(opList.option.get(i));
+
+
+
             radio.setStyle("-fx-text-fill: white; -fx-font-size: 20px;");
             radio.setUserData(opList.option.get(i));
             radio.setToggleGroup(groupOfRadio);
